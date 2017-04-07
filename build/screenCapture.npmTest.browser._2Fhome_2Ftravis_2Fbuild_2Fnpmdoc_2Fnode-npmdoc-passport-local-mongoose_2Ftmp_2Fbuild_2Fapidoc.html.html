@@ -1,0 +1,2270 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/saintedlama/passport-local-mongoose#readme">passport-local-mongoose (v4.0.0)</a>
+</h1>
+<h4>Mongoose plugin that simplifies building username and password login with Passport</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.passport-local-mongoose">module passport-local-mongoose</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-local-mongoose.errors.AttemptTooSoonError">
+            function <span class="apidocSignatureSpan">passport-local-mongoose.</span>errors.AttemptTooSoonError
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-local-mongoose.errors.AuthenticationError">
+            function <span class="apidocSignatureSpan">passport-local-mongoose.</span>errors.AuthenticationError
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-local-mongoose.errors.IncorrectPasswordError">
+            function <span class="apidocSignatureSpan">passport-local-mongoose.</span>errors.IncorrectPasswordError
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-local-mongoose.errors.IncorrectUsernameError">
+            function <span class="apidocSignatureSpan">passport-local-mongoose.</span>errors.IncorrectUsernameError
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-local-mongoose.errors.MissingPasswordError">
+            function <span class="apidocSignatureSpan">passport-local-mongoose.</span>errors.MissingPasswordError
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-local-mongoose.errors.MissingUsernameError">
+            function <span class="apidocSignatureSpan">passport-local-mongoose.</span>errors.MissingUsernameError
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-local-mongoose.errors.NoSaltValueStoredError">
+            function <span class="apidocSignatureSpan">passport-local-mongoose.</span>errors.NoSaltValueStoredError
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-local-mongoose.errors.TooManyAttemptsError">
+            function <span class="apidocSignatureSpan">passport-local-mongoose.</span>errors.TooManyAttemptsError
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-local-mongoose.errors.UserExistsError">
+            function <span class="apidocSignatureSpan">passport-local-mongoose.</span>errors.UserExistsError
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">passport-local-mongoose.</span>errors</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.passport-local-mongoose.errors">module passport-local-mongoose.errors</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-local-mongoose.errors.AttemptTooSoonError">
+            function <span class="apidocSignatureSpan">passport-local-mongoose.errors.</span>AttemptTooSoonError
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-local-mongoose.errors.AuthenticationError">
+            function <span class="apidocSignatureSpan">passport-local-mongoose.errors.</span>AuthenticationError
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-local-mongoose.errors.IncorrectPasswordError">
+            function <span class="apidocSignatureSpan">passport-local-mongoose.errors.</span>IncorrectPasswordError
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-local-mongoose.errors.IncorrectUsernameError">
+            function <span class="apidocSignatureSpan">passport-local-mongoose.errors.</span>IncorrectUsernameError
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-local-mongoose.errors.MissingPasswordError">
+            function <span class="apidocSignatureSpan">passport-local-mongoose.errors.</span>MissingPasswordError
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-local-mongoose.errors.MissingUsernameError">
+            function <span class="apidocSignatureSpan">passport-local-mongoose.errors.</span>MissingUsernameError
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-local-mongoose.errors.NoSaltValueStoredError">
+            function <span class="apidocSignatureSpan">passport-local-mongoose.errors.</span>NoSaltValueStoredError
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-local-mongoose.errors.TooManyAttemptsError">
+            function <span class="apidocSignatureSpan">passport-local-mongoose.errors.</span>TooManyAttemptsError
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-local-mongoose.errors.UserExistsError">
+            function <span class="apidocSignatureSpan">passport-local-mongoose.errors.</span>UserExistsError
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.passport-local-mongoose.errors.AttemptTooSoonError">module passport-local-mongoose.errors.AttemptTooSoonError</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-local-mongoose.errors.AttemptTooSoonError.AttemptTooSoonError">
+            function <span class="apidocSignatureSpan">passport-local-mongoose.errors.</span>AttemptTooSoonError
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-local-mongoose.errors.AttemptTooSoonError.super_">
+            function <span class="apidocSignatureSpan">passport-local-mongoose.errors.AttemptTooSoonError.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.passport-local-mongoose.errors.AuthenticationError">module passport-local-mongoose.errors.AuthenticationError</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-local-mongoose.errors.AuthenticationError.AuthenticationError">
+            function <span class="apidocSignatureSpan">passport-local-mongoose.errors.</span>AuthenticationError
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-local-mongoose.errors.AuthenticationError.super_">
+            function <span class="apidocSignatureSpan">passport-local-mongoose.errors.AuthenticationError.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.passport-local-mongoose.errors.IncorrectPasswordError">module passport-local-mongoose.errors.IncorrectPasswordError</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-local-mongoose.errors.IncorrectPasswordError.IncorrectPasswordError">
+            function <span class="apidocSignatureSpan">passport-local-mongoose.errors.</span>IncorrectPasswordError
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-local-mongoose.errors.IncorrectPasswordError.super_">
+            function <span class="apidocSignatureSpan">passport-local-mongoose.errors.IncorrectPasswordError.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.passport-local-mongoose.errors.IncorrectUsernameError">module passport-local-mongoose.errors.IncorrectUsernameError</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-local-mongoose.errors.IncorrectUsernameError.IncorrectUsernameError">
+            function <span class="apidocSignatureSpan">passport-local-mongoose.errors.</span>IncorrectUsernameError
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-local-mongoose.errors.IncorrectUsernameError.super_">
+            function <span class="apidocSignatureSpan">passport-local-mongoose.errors.IncorrectUsernameError.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.passport-local-mongoose.errors.MissingPasswordError">module passport-local-mongoose.errors.MissingPasswordError</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-local-mongoose.errors.MissingPasswordError.MissingPasswordError">
+            function <span class="apidocSignatureSpan">passport-local-mongoose.errors.</span>MissingPasswordError
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-local-mongoose.errors.MissingPasswordError.super_">
+            function <span class="apidocSignatureSpan">passport-local-mongoose.errors.MissingPasswordError.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.passport-local-mongoose.errors.MissingUsernameError">module passport-local-mongoose.errors.MissingUsernameError</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-local-mongoose.errors.MissingUsernameError.MissingUsernameError">
+            function <span class="apidocSignatureSpan">passport-local-mongoose.errors.</span>MissingUsernameError
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-local-mongoose.errors.MissingUsernameError.super_">
+            function <span class="apidocSignatureSpan">passport-local-mongoose.errors.MissingUsernameError.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.passport-local-mongoose.errors.NoSaltValueStoredError">module passport-local-mongoose.errors.NoSaltValueStoredError</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-local-mongoose.errors.NoSaltValueStoredError.NoSaltValueStoredError">
+            function <span class="apidocSignatureSpan">passport-local-mongoose.errors.</span>NoSaltValueStoredError
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-local-mongoose.errors.NoSaltValueStoredError.super_">
+            function <span class="apidocSignatureSpan">passport-local-mongoose.errors.NoSaltValueStoredError.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.passport-local-mongoose.errors.TooManyAttemptsError">module passport-local-mongoose.errors.TooManyAttemptsError</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-local-mongoose.errors.TooManyAttemptsError.TooManyAttemptsError">
+            function <span class="apidocSignatureSpan">passport-local-mongoose.errors.</span>TooManyAttemptsError
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-local-mongoose.errors.TooManyAttemptsError.super_">
+            function <span class="apidocSignatureSpan">passport-local-mongoose.errors.TooManyAttemptsError.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.passport-local-mongoose.errors.UserExistsError">module passport-local-mongoose.errors.UserExistsError</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-local-mongoose.errors.UserExistsError.UserExistsError">
+            function <span class="apidocSignatureSpan">passport-local-mongoose.errors.</span>UserExistsError
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.passport-local-mongoose.errors.UserExistsError.super_">
+            function <span class="apidocSignatureSpan">passport-local-mongoose.errors.UserExistsError.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.passport-local-mongoose" id="apidoc.module.passport-local-mongoose">module passport-local-mongoose</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.passport-local-mongoose.errors.AttemptTooSoonError" id="apidoc.element.passport-local-mongoose.errors.AttemptTooSoonError">
+        function <span class="apidocSignatureSpan">passport-local-mongoose.</span>errors.AttemptTooSoonError
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">errors.AttemptTooSoonError = function () {
+  if (!(this instanceof ctor)) {
+    var constructorArgs = Array.prototype.slice.call(arguments);
+    constructorArgs.unshift(ctor);
+
+    return new (ctor.bind.apply(ctor, constructorArgs))();
+  }
+
+  options.inherits.call(this);
+
+  if (options.captureStackTrace) {
+    Error.captureStackTrace &amp;&amp; Error.captureStackTrace(this, arguments.callee);
+  }
+
+  copy(parameters, this);
+
+  var msg = arguments[0];
+  if (msg) {
+    var args = Array.prototype.slice.call(arguments);
+
+    if (args.length &gt; 1 &amp;&amp; typeof args[args.length - 1] == 'object') {
+      var instanceParams = args.pop();
+
+      copy(instanceParams, this);
+    }
+
+    this.message = util.format.apply(util, args);
+  }
+
+  this.name = name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.passport-local-mongoose.errors.AuthenticationError" id="apidoc.element.passport-local-mongoose.errors.AuthenticationError">
+        function <span class="apidocSignatureSpan">passport-local-mongoose.</span>errors.AuthenticationError
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">errors.AuthenticationError = function () {
+  if (!(this instanceof ctor)) {
+    var constructorArgs = Array.prototype.slice.call(arguments);
+    constructorArgs.unshift(ctor);
+
+    return new (ctor.bind.apply(ctor, constructorArgs))();
+  }
+
+  options.inherits.call(this);
+
+  if (options.captureStackTrace) {
+    Error.captureStackTrace &amp;&amp; Error.captureStackTrace(this, arguments.callee);
+  }
+
+  copy(parameters, this);
+
+  var msg = arguments[0];
+  if (msg) {
+    var args = Array.prototype.slice.call(arguments);
+
+    if (args.length &gt; 1 &amp;&amp; typeof args[args.length - 1] == 'object') {
+      var instanceParams = args.pop();
+
+      copy(instanceParams, this);
+    }
+
+    this.message = util.format.apply(util, args);
+  }
+
+  this.name = name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.passport-local-mongoose.errors.IncorrectPasswordError" id="apidoc.element.passport-local-mongoose.errors.IncorrectPasswordError">
+        function <span class="apidocSignatureSpan">passport-local-mongoose.</span>errors.IncorrectPasswordError
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">errors.IncorrectPasswordError = function () {
+  if (!(this instanceof ctor)) {
+    var constructorArgs = Array.prototype.slice.call(arguments);
+    constructorArgs.unshift(ctor);
+
+    return new (ctor.bind.apply(ctor, constructorArgs))();
+  }
+
+  options.inherits.call(this);
+
+  if (options.captureStackTrace) {
+    Error.captureStackTrace &amp;&amp; Error.captureStackTrace(this, arguments.callee);
+  }
+
+  copy(parameters, this);
+
+  var msg = arguments[0];
+  if (msg) {
+    var args = Array.prototype.slice.call(arguments);
+
+    if (args.length &gt; 1 &amp;&amp; typeof args[args.length - 1] == 'object') {
+      var instanceParams = args.pop();
+
+      copy(instanceParams, this);
+    }
+
+    this.message = util.format.apply(util, args);
+  }
+
+  this.name = name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.passport-local-mongoose.errors.IncorrectUsernameError" id="apidoc.element.passport-local-mongoose.errors.IncorrectUsernameError">
+        function <span class="apidocSignatureSpan">passport-local-mongoose.</span>errors.IncorrectUsernameError
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">errors.IncorrectUsernameError = function () {
+  if (!(this instanceof ctor)) {
+    var constructorArgs = Array.prototype.slice.call(arguments);
+    constructorArgs.unshift(ctor);
+
+    return new (ctor.bind.apply(ctor, constructorArgs))();
+  }
+
+  options.inherits.call(this);
+
+  if (options.captureStackTrace) {
+    Error.captureStackTrace &amp;&amp; Error.captureStackTrace(this, arguments.callee);
+  }
+
+  copy(parameters, this);
+
+  var msg = arguments[0];
+  if (msg) {
+    var args = Array.prototype.slice.call(arguments);
+
+    if (args.length &gt; 1 &amp;&amp; typeof args[args.length - 1] == 'object') {
+      var instanceParams = args.pop();
+
+      copy(instanceParams, this);
+    }
+
+    this.message = util.format.apply(util, args);
+  }
+
+  this.name = name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.passport-local-mongoose.errors.MissingPasswordError" id="apidoc.element.passport-local-mongoose.errors.MissingPasswordError">
+        function <span class="apidocSignatureSpan">passport-local-mongoose.</span>errors.MissingPasswordError
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">errors.MissingPasswordError = function () {
+  if (!(this instanceof ctor)) {
+    var constructorArgs = Array.prototype.slice.call(arguments);
+    constructorArgs.unshift(ctor);
+
+    return new (ctor.bind.apply(ctor, constructorArgs))();
+  }
+
+  options.inherits.call(this);
+
+  if (options.captureStackTrace) {
+    Error.captureStackTrace &amp;&amp; Error.captureStackTrace(this, arguments.callee);
+  }
+
+  copy(parameters, this);
+
+  var msg = arguments[0];
+  if (msg) {
+    var args = Array.prototype.slice.call(arguments);
+
+    if (args.length &gt; 1 &amp;&amp; typeof args[args.length - 1] == 'object') {
+      var instanceParams = args.pop();
+
+      copy(instanceParams, this);
+    }
+
+    this.message = util.format.apply(util, args);
+  }
+
+  this.name = name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.passport-local-mongoose.errors.MissingUsernameError" id="apidoc.element.passport-local-mongoose.errors.MissingUsernameError">
+        function <span class="apidocSignatureSpan">passport-local-mongoose.</span>errors.MissingUsernameError
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">errors.MissingUsernameError = function () {
+  if (!(this instanceof ctor)) {
+    var constructorArgs = Array.prototype.slice.call(arguments);
+    constructorArgs.unshift(ctor);
+
+    return new (ctor.bind.apply(ctor, constructorArgs))();
+  }
+
+  options.inherits.call(this);
+
+  if (options.captureStackTrace) {
+    Error.captureStackTrace &amp;&amp; Error.captureStackTrace(this, arguments.callee);
+  }
+
+  copy(parameters, this);
+
+  var msg = arguments[0];
+  if (msg) {
+    var args = Array.prototype.slice.call(arguments);
+
+    if (args.length &gt; 1 &amp;&amp; typeof args[args.length - 1] == 'object') {
+      var instanceParams = args.pop();
+
+      copy(instanceParams, this);
+    }
+
+    this.message = util.format.apply(util, args);
+  }
+
+  this.name = name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.passport-local-mongoose.errors.NoSaltValueStoredError" id="apidoc.element.passport-local-mongoose.errors.NoSaltValueStoredError">
+        function <span class="apidocSignatureSpan">passport-local-mongoose.</span>errors.NoSaltValueStoredError
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">errors.NoSaltValueStoredError = function () {
+  if (!(this instanceof ctor)) {
+    var constructorArgs = Array.prototype.slice.call(arguments);
+    constructorArgs.unshift(ctor);
+
+    return new (ctor.bind.apply(ctor, constructorArgs))();
+  }
+
+  options.inherits.call(this);
+
+  if (options.captureStackTrace) {
+    Error.captureStackTrace &amp;&amp; Error.captureStackTrace(this, arguments.callee);
+  }
+
+  copy(parameters, this);
+
+  var msg = arguments[0];
+  if (msg) {
+    var args = Array.prototype.slice.call(arguments);
+
+    if (args.length &gt; 1 &amp;&amp; typeof args[args.length - 1] == 'object') {
+      var instanceParams = args.pop();
+
+      copy(instanceParams, this);
+    }
+
+    this.message = util.format.apply(util, args);
+  }
+
+  this.name = name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.passport-local-mongoose.errors.TooManyAttemptsError" id="apidoc.element.passport-local-mongoose.errors.TooManyAttemptsError">
+        function <span class="apidocSignatureSpan">passport-local-mongoose.</span>errors.TooManyAttemptsError
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">errors.TooManyAttemptsError = function () {
+  if (!(this instanceof ctor)) {
+    var constructorArgs = Array.prototype.slice.call(arguments);
+    constructorArgs.unshift(ctor);
+
+    return new (ctor.bind.apply(ctor, constructorArgs))();
+  }
+
+  options.inherits.call(this);
+
+  if (options.captureStackTrace) {
+    Error.captureStackTrace &amp;&amp; Error.captureStackTrace(this, arguments.callee);
+  }
+
+  copy(parameters, this);
+
+  var msg = arguments[0];
+  if (msg) {
+    var args = Array.prototype.slice.call(arguments);
+
+    if (args.length &gt; 1 &amp;&amp; typeof args[args.length - 1] == 'object') {
+      var instanceParams = args.pop();
+
+      copy(instanceParams, this);
+    }
+
+    this.message = util.format.apply(util, args);
+  }
+
+  this.name = name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.passport-local-mongoose.errors.UserExistsError" id="apidoc.element.passport-local-mongoose.errors.UserExistsError">
+        function <span class="apidocSignatureSpan">passport-local-mongoose.</span>errors.UserExistsError
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">errors.UserExistsError = function () {
+  if (!(this instanceof ctor)) {
+    var constructorArgs = Array.prototype.slice.call(arguments);
+    constructorArgs.unshift(ctor);
+
+    return new (ctor.bind.apply(ctor, constructorArgs))();
+  }
+
+  options.inherits.call(this);
+
+  if (options.captureStackTrace) {
+    Error.captureStackTrace &amp;&amp; Error.captureStackTrace(this, arguments.callee);
+  }
+
+  copy(parameters, this);
+
+  var msg = arguments[0];
+  if (msg) {
+    var args = Array.prototype.slice.call(arguments);
+
+    if (args.length &gt; 1 &amp;&amp; typeof args[args.length - 1] == 'object') {
+      var instanceParams = args.pop();
+
+      copy(instanceParams, this);
+    }
+
+    this.message = util.format.apply(util, args);
+  }
+
+  this.name = name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.passport-local-mongoose.errors" id="apidoc.module.passport-local-mongoose.errors">module passport-local-mongoose.errors</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.passport-local-mongoose.errors.AttemptTooSoonError" id="apidoc.element.passport-local-mongoose.errors.AttemptTooSoonError">
+        function <span class="apidocSignatureSpan">passport-local-mongoose.errors.</span>AttemptTooSoonError
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">AttemptTooSoonError = function () {
+  if (!(this instanceof ctor)) {
+    var constructorArgs = Array.prototype.slice.call(arguments);
+    constructorArgs.unshift(ctor);
+
+    return new (ctor.bind.apply(ctor, constructorArgs))();
+  }
+
+  options.inherits.call(this);
+
+  if (options.captureStackTrace) {
+    Error.captureStackTrace &amp;&amp; Error.captureStackTrace(this, arguments.callee);
+  }
+
+  copy(parameters, this);
+
+  var msg = arguments[0];
+  if (msg) {
+    var args = Array.prototype.slice.call(arguments);
+
+    if (args.length &gt; 1 &amp;&amp; typeof args[args.length - 1] == 'object') {
+      var instanceParams = args.pop();
+
+      copy(instanceParams, this);
+    }
+
+    this.message = util.format.apply(util, args);
+  }
+
+  this.name = name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if (options.limitAttempts) {
+  var attemptsInterval = Math.pow(options.interval, Math.log(user.get(options.attemptsField) + 1));
+  var calculatedInterval = (attemptsInterval &lt; options.maxInterval) ? attemptsInterval : options.maxInterval;
+
+  if (Date.now() - user.get(options.lastLoginField) &lt; calculatedInterval) {
+    user.set(options.lastLoginField, Date.now());
+    user.save();
+    return cb(null, false, new errors.<span class="apidocCodeKeywordSpan">AttemptTooSoonError</span>(options.errorMessages.AttemptTooSoonError
+));
+  }
+
+  if (user.get(options.attemptsField) &gt;= options.maxAttempts) {
+    return cb(null, false, new errors.TooManyAttemptsError(options.errorMessages.TooManyAttemptsError));
+  }
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.passport-local-mongoose.errors.AuthenticationError" id="apidoc.element.passport-local-mongoose.errors.AuthenticationError">
+        function <span class="apidocSignatureSpan">passport-local-mongoose.errors.</span>AuthenticationError
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">AuthenticationError = function () {
+  if (!(this instanceof ctor)) {
+    var constructorArgs = Array.prototype.slice.call(arguments);
+    constructorArgs.unshift(ctor);
+
+    return new (ctor.bind.apply(ctor, constructorArgs))();
+  }
+
+  options.inherits.call(this);
+
+  if (options.captureStackTrace) {
+    Error.captureStackTrace &amp;&amp; Error.captureStackTrace(this, arguments.callee);
+  }
+
+  copy(parameters, this);
+
+  var msg = arguments[0];
+  if (msg) {
+    var args = Array.prototype.slice.call(arguments);
+
+    if (args.length &gt; 1 &amp;&amp; typeof args[args.length - 1] == 'object') {
+      var instanceParams = args.pop();
+
+      copy(instanceParams, this);
+    }
+
+    this.message = util.format.apply(util, args);
+  }
+
+  this.name = name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.passport-local-mongoose.errors.IncorrectPasswordError" id="apidoc.element.passport-local-mongoose.errors.IncorrectPasswordError">
+        function <span class="apidocSignatureSpan">passport-local-mongoose.errors.</span>IncorrectPasswordError
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">IncorrectPasswordError = function () {
+  if (!(this instanceof ctor)) {
+    var constructorArgs = Array.prototype.slice.call(arguments);
+    constructorArgs.unshift(ctor);
+
+    return new (ctor.bind.apply(ctor, constructorArgs))();
+  }
+
+  options.inherits.call(this);
+
+  if (options.captureStackTrace) {
+    Error.captureStackTrace &amp;&amp; Error.captureStackTrace(this, arguments.callee);
+  }
+
+  copy(parameters, this);
+
+  var msg = arguments[0];
+  if (msg) {
+    var args = Array.prototype.slice.call(arguments);
+
+    if (args.length &gt; 1 &amp;&amp; typeof args[args.length - 1] == 'object') {
+      var instanceParams = args.pop();
+
+      copy(instanceParams, this);
+    }
+
+    this.message = util.format.apply(util, args);
+  }
+
+  this.name = name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      user.set(options.lastLoginField, Date.now());
+      user.set(options.attemptsField, user.get(options.attemptsField) + 1);
+      user.save(function(saveErr) {
+        if (saveErr) { return cb(saveErr); }
+        if (user.get(options.attemptsField) &gt;= options.maxAttempts) {
+          return cb(null, false, new errors.TooManyAttemptsError(options.errorMessages.TooManyAttemptsError));
+        } else {
+          return cb(null, false, new errors.<span class="apidocCodeKeywordSpan">IncorrectPasswordError</span>(options.errorMessages
+.IncorrectPasswordError));
+        }
+      });
+    } else {
+      return cb(null, false, new errors.IncorrectPasswordError(options.errorMessages.IncorrectPasswordError));
+    }
+  }
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.passport-local-mongoose.errors.IncorrectUsernameError" id="apidoc.element.passport-local-mongoose.errors.IncorrectUsernameError">
+        function <span class="apidocSignatureSpan">passport-local-mongoose.errors.</span>IncorrectUsernameError
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">IncorrectUsernameError = function () {
+  if (!(this instanceof ctor)) {
+    var constructorArgs = Array.prototype.slice.call(arguments);
+    constructorArgs.unshift(ctor);
+
+    return new (ctor.bind.apply(ctor, constructorArgs))();
+  }
+
+  options.inherits.call(this);
+
+  if (options.captureStackTrace) {
+    Error.captureStackTrace &amp;&amp; Error.captureStackTrace(this, arguments.callee);
+  }
+
+  copy(parameters, this);
+
+  var msg = arguments[0];
+  if (msg) {
+    var args = Array.prototype.slice.call(arguments);
+
+    if (args.length &gt; 1 &amp;&amp; typeof args[args.length - 1] == 'object') {
+      var instanceParams = args.pop();
+
+      copy(instanceParams, this);
+    }
+
+    this.message = util.format.apply(util, args);
+  }
+
+  this.name = name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  if (!self.get(options.saltField)) {
+    self.constructor.findByUsername(self.get(options.usernameField), true, function(err, user) {
+      if (err) { return cb(err); }
+
+      if (user) {
+        return authenticate(user, password, cb);
+      } else {
+        return cb(null, false, new errors.<span class="apidocCodeKeywordSpan">IncorrectUsernameError</span>(options.errorMessages
+.IncorrectUsernameError));
+      }
+    });
+  } else {
+    return authenticate(self, password, cb);
+  }
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.passport-local-mongoose.errors.MissingPasswordError" id="apidoc.element.passport-local-mongoose.errors.MissingPasswordError">
+        function <span class="apidocSignatureSpan">passport-local-mongoose.errors.</span>MissingPasswordError
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">MissingPasswordError = function () {
+  if (!(this instanceof ctor)) {
+    var constructorArgs = Array.prototype.slice.call(arguments);
+    constructorArgs.unshift(ctor);
+
+    return new (ctor.bind.apply(ctor, constructorArgs))();
+  }
+
+  options.inherits.call(this);
+
+  if (options.captureStackTrace) {
+    Error.captureStackTrace &amp;&amp; Error.captureStackTrace(this, arguments.callee);
+  }
+
+  copy(parameters, this);
+
+  var msg = arguments[0];
+  if (msg) {
+    var args = Array.prototype.slice.call(arguments);
+
+    if (args.length &gt; 1 &amp;&amp; typeof args[args.length - 1] == 'object') {
+      var instanceParams = args.pop();
+
+      copy(instanceParams, this);
+    }
+
+    this.message = util.format.apply(util, args);
+  }
+
+  this.name = name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+next();
+  });
+
+  schema.methods.setPassword = function(password, cb) {
+if (!password) {
+  return cb(new errors.<span class="apidocCodeKeywordSpan">MissingPasswordError</span>(options.errorMessages.MissingPasswordError
+));
+}
+
+var self = this;
+
+options.passwordValidator(password, function(err) {
+  if (err) {
+    return cb(err);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.passport-local-mongoose.errors.MissingUsernameError" id="apidoc.element.passport-local-mongoose.errors.MissingUsernameError">
+        function <span class="apidocSignatureSpan">passport-local-mongoose.errors.</span>MissingUsernameError
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">MissingUsernameError = function () {
+  if (!(this instanceof ctor)) {
+    var constructorArgs = Array.prototype.slice.call(arguments);
+    constructorArgs.unshift(ctor);
+
+    return new (ctor.bind.apply(ctor, constructorArgs))();
+  }
+
+  options.inherits.call(this);
+
+  if (options.captureStackTrace) {
+    Error.captureStackTrace &amp;&amp; Error.captureStackTrace(this, arguments.callee);
+  }
+
+  copy(parameters, this);
+
+  var msg = arguments[0];
+  if (msg) {
+    var args = Array.prototype.slice.call(arguments);
+
+    if (args.length &gt; 1 &amp;&amp; typeof args[args.length - 1] == 'object') {
+      var instanceParams = args.pop();
+
+      copy(instanceParams, this);
+    }
+
+    this.message = util.format.apply(util, args);
+  }
+
+  this.name = name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  schema.statics.register = function(user, password, cb) {
+    // Create an instance of this in case user isn't already an instance
+    if (!(user instanceof this)) {
+user = new this(user);
+    }
+
+    if (!user.get(options.usernameField)) {
+return cb(new errors.<span class="apidocCodeKeywordSpan">MissingUsernameError</span>(options.errorMessages.MissingUsernameError));
+    }
+
+    var self = this;
+    self.findByUsername(user.get(options.usernameField), function(err, existingUser) {
+if (err) { return cb(err); }
+
+if (existingUser) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.passport-local-mongoose.errors.NoSaltValueStoredError" id="apidoc.element.passport-local-mongoose.errors.NoSaltValueStoredError">
+        function <span class="apidocSignatureSpan">passport-local-mongoose.errors.</span>NoSaltValueStoredError
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">NoSaltValueStoredError = function () {
+  if (!(this instanceof ctor)) {
+    var constructorArgs = Array.prototype.slice.call(arguments);
+    constructorArgs.unshift(ctor);
+
+    return new (ctor.bind.apply(ctor, constructorArgs))();
+  }
+
+  options.inherits.call(this);
+
+  if (options.captureStackTrace) {
+    Error.captureStackTrace &amp;&amp; Error.captureStackTrace(this, arguments.callee);
+  }
+
+  copy(parameters, this);
+
+  var msg = arguments[0];
+  if (msg) {
+    var args = Array.prototype.slice.call(arguments);
+
+    if (args.length &gt; 1 &amp;&amp; typeof args[args.length - 1] == 'object') {
+      var instanceParams = args.pop();
+
+      copy(instanceParams, this);
+    }
+
+    this.message = util.format.apply(util, args);
+  }
+
+  this.name = name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  if (user.get(options.attemptsField) &gt;= options.maxAttempts) {
+    return cb(null, false, new errors.TooManyAttemptsError(options.errorMessages.TooManyAttemptsError));
+  }
+}
+
+if (!user.get(options.saltField)) {
+  return cb(null, false, new errors.<span class="apidocCodeKeywordSpan">NoSaltValueStoredError</span>(options.errorMessages.NoSaltValueStoredError
+));
+}
+
+pbkdf2(password, user.get(options.saltField), function(err, hashRaw) {
+  if (err) {
+    return cb(err);
+  }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.passport-local-mongoose.errors.TooManyAttemptsError" id="apidoc.element.passport-local-mongoose.errors.TooManyAttemptsError">
+        function <span class="apidocSignatureSpan">passport-local-mongoose.errors.</span>TooManyAttemptsError
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">TooManyAttemptsError = function () {
+  if (!(this instanceof ctor)) {
+    var constructorArgs = Array.prototype.slice.call(arguments);
+    constructorArgs.unshift(ctor);
+
+    return new (ctor.bind.apply(ctor, constructorArgs))();
+  }
+
+  options.inherits.call(this);
+
+  if (options.captureStackTrace) {
+    Error.captureStackTrace &amp;&amp; Error.captureStackTrace(this, arguments.callee);
+  }
+
+  copy(parameters, this);
+
+  var msg = arguments[0];
+  if (msg) {
+    var args = Array.prototype.slice.call(arguments);
+
+    if (args.length &gt; 1 &amp;&amp; typeof args[args.length - 1] == 'object') {
+      var instanceParams = args.pop();
+
+      copy(instanceParams, this);
+    }
+
+    this.message = util.format.apply(util, args);
+  }
+
+  this.name = name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  if (Date.now() - user.get(options.lastLoginField) &lt; calculatedInterval) {
+    user.set(options.lastLoginField, Date.now());
+    user.save();
+    return cb(null, false, new errors.AttemptTooSoonError(options.errorMessages.AttemptTooSoonError));
+  }
+
+  if (user.get(options.attemptsField) &gt;= options.maxAttempts) {
+    return cb(null, false, new errors.<span class="apidocCodeKeywordSpan">TooManyAttemptsError</span>(options.errorMessages.TooManyAttemptsError
+));
+  }
+}
+
+if (!user.get(options.saltField)) {
+  return cb(null, false, new errors.NoSaltValueStoredError(options.errorMessages.NoSaltValueStoredError));
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.passport-local-mongoose.errors.UserExistsError" id="apidoc.element.passport-local-mongoose.errors.UserExistsError">
+        function <span class="apidocSignatureSpan">passport-local-mongoose.errors.</span>UserExistsError
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">UserExistsError = function () {
+  if (!(this instanceof ctor)) {
+    var constructorArgs = Array.prototype.slice.call(arguments);
+    constructorArgs.unshift(ctor);
+
+    return new (ctor.bind.apply(ctor, constructorArgs))();
+  }
+
+  options.inherits.call(this);
+
+  if (options.captureStackTrace) {
+    Error.captureStackTrace &amp;&amp; Error.captureStackTrace(this, arguments.callee);
+  }
+
+  copy(parameters, this);
+
+  var msg = arguments[0];
+  if (msg) {
+    var args = Array.prototype.slice.call(arguments);
+
+    if (args.length &gt; 1 &amp;&amp; typeof args[args.length - 1] == 'object') {
+      var instanceParams = args.pop();
+
+      copy(instanceParams, this);
+    }
+
+    this.message = util.format.apply(util, args);
+  }
+
+  this.name = name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    }
+
+    var self = this;
+    self.findByUsername(user.get(options.usernameField), function(err, existingUser) {
+if (err) { return cb(err); }
+
+if (existingUser) {
+  return cb(new errors.<span class="apidocCodeKeywordSpan">UserExistsError</span>(options.errorMessages.UserExistsError));
+}
+
+user.setPassword(password, function(setPasswordErr, user) {
+  if (setPasswordErr) {
+    return cb(setPasswordErr);
+  }
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.passport-local-mongoose.errors.AttemptTooSoonError" id="apidoc.module.passport-local-mongoose.errors.AttemptTooSoonError">module passport-local-mongoose.errors.AttemptTooSoonError</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.passport-local-mongoose.errors.AttemptTooSoonError.AttemptTooSoonError" id="apidoc.element.passport-local-mongoose.errors.AttemptTooSoonError.AttemptTooSoonError">
+        function <span class="apidocSignatureSpan">passport-local-mongoose.errors.</span>AttemptTooSoonError
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">AttemptTooSoonError = function () {
+  if (!(this instanceof ctor)) {
+    var constructorArgs = Array.prototype.slice.call(arguments);
+    constructorArgs.unshift(ctor);
+
+    return new (ctor.bind.apply(ctor, constructorArgs))();
+  }
+
+  options.inherits.call(this);
+
+  if (options.captureStackTrace) {
+    Error.captureStackTrace &amp;&amp; Error.captureStackTrace(this, arguments.callee);
+  }
+
+  copy(parameters, this);
+
+  var msg = arguments[0];
+  if (msg) {
+    var args = Array.prototype.slice.call(arguments);
+
+    if (args.length &gt; 1 &amp;&amp; typeof args[args.length - 1] == 'object') {
+      var instanceParams = args.pop();
+
+      copy(instanceParams, this);
+    }
+
+    this.message = util.format.apply(util, args);
+  }
+
+  this.name = name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if (options.limitAttempts) {
+  var attemptsInterval = Math.pow(options.interval, Math.log(user.get(options.attemptsField) + 1));
+  var calculatedInterval = (attemptsInterval &lt; options.maxInterval) ? attemptsInterval : options.maxInterval;
+
+  if (Date.now() - user.get(options.lastLoginField) &lt; calculatedInterval) {
+    user.set(options.lastLoginField, Date.now());
+    user.save();
+    return cb(null, false, new errors.<span class="apidocCodeKeywordSpan">AttemptTooSoonError</span>(options.errorMessages.AttemptTooSoonError
+));
+  }
+
+  if (user.get(options.attemptsField) &gt;= options.maxAttempts) {
+    return cb(null, false, new errors.TooManyAttemptsError(options.errorMessages.TooManyAttemptsError));
+  }
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.passport-local-mongoose.errors.AttemptTooSoonError.super_" id="apidoc.element.passport-local-mongoose.errors.AttemptTooSoonError.super_">
+        function <span class="apidocSignatureSpan">passport-local-mongoose.errors.AttemptTooSoonError.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">super_ = function () {
+  if (!(this instanceof ctor)) {
+    var constructorArgs = Array.prototype.slice.call(arguments);
+    constructorArgs.unshift(ctor);
+
+    return new (ctor.bind.apply(ctor, constructorArgs))();
+  }
+
+  options.inherits.call(this);
+
+  if (options.captureStackTrace) {
+    Error.captureStackTrace &amp;&amp; Error.captureStackTrace(this, arguments.callee);
+  }
+
+  copy(parameters, this);
+
+  var msg = arguments[0];
+  if (msg) {
+    var args = Array.prototype.slice.call(arguments);
+
+    if (args.length &gt; 1 &amp;&amp; typeof args[args.length - 1] == 'object') {
+      var instanceParams = args.pop();
+
+      copy(instanceParams, this);
+    }
+
+    this.message = util.format.apply(util, args);
+  }
+
+  this.name = name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.passport-local-mongoose.errors.AuthenticationError" id="apidoc.module.passport-local-mongoose.errors.AuthenticationError">module passport-local-mongoose.errors.AuthenticationError</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.passport-local-mongoose.errors.AuthenticationError.AuthenticationError" id="apidoc.element.passport-local-mongoose.errors.AuthenticationError.AuthenticationError">
+        function <span class="apidocSignatureSpan">passport-local-mongoose.errors.</span>AuthenticationError
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">AuthenticationError = function () {
+  if (!(this instanceof ctor)) {
+    var constructorArgs = Array.prototype.slice.call(arguments);
+    constructorArgs.unshift(ctor);
+
+    return new (ctor.bind.apply(ctor, constructorArgs))();
+  }
+
+  options.inherits.call(this);
+
+  if (options.captureStackTrace) {
+    Error.captureStackTrace &amp;&amp; Error.captureStackTrace(this, arguments.callee);
+  }
+
+  copy(parameters, this);
+
+  var msg = arguments[0];
+  if (msg) {
+    var args = Array.prototype.slice.call(arguments);
+
+    if (args.length &gt; 1 &amp;&amp; typeof args[args.length - 1] == 'object') {
+      var instanceParams = args.pop();
+
+      copy(instanceParams, this);
+    }
+
+    this.message = util.format.apply(util, args);
+  }
+
+  this.name = name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.passport-local-mongoose.errors.AuthenticationError.super_" id="apidoc.element.passport-local-mongoose.errors.AuthenticationError.super_">
+        function <span class="apidocSignatureSpan">passport-local-mongoose.errors.AuthenticationError.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Error() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.passport-local-mongoose.errors.IncorrectPasswordError" id="apidoc.module.passport-local-mongoose.errors.IncorrectPasswordError">module passport-local-mongoose.errors.IncorrectPasswordError</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.passport-local-mongoose.errors.IncorrectPasswordError.IncorrectPasswordError" id="apidoc.element.passport-local-mongoose.errors.IncorrectPasswordError.IncorrectPasswordError">
+        function <span class="apidocSignatureSpan">passport-local-mongoose.errors.</span>IncorrectPasswordError
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">IncorrectPasswordError = function () {
+  if (!(this instanceof ctor)) {
+    var constructorArgs = Array.prototype.slice.call(arguments);
+    constructorArgs.unshift(ctor);
+
+    return new (ctor.bind.apply(ctor, constructorArgs))();
+  }
+
+  options.inherits.call(this);
+
+  if (options.captureStackTrace) {
+    Error.captureStackTrace &amp;&amp; Error.captureStackTrace(this, arguments.callee);
+  }
+
+  copy(parameters, this);
+
+  var msg = arguments[0];
+  if (msg) {
+    var args = Array.prototype.slice.call(arguments);
+
+    if (args.length &gt; 1 &amp;&amp; typeof args[args.length - 1] == 'object') {
+      var instanceParams = args.pop();
+
+      copy(instanceParams, this);
+    }
+
+    this.message = util.format.apply(util, args);
+  }
+
+  this.name = name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      user.set(options.lastLoginField, Date.now());
+      user.set(options.attemptsField, user.get(options.attemptsField) + 1);
+      user.save(function(saveErr) {
+        if (saveErr) { return cb(saveErr); }
+        if (user.get(options.attemptsField) &gt;= options.maxAttempts) {
+          return cb(null, false, new errors.TooManyAttemptsError(options.errorMessages.TooManyAttemptsError));
+        } else {
+          return cb(null, false, new errors.<span class="apidocCodeKeywordSpan">IncorrectPasswordError</span>(options.errorMessages
+.IncorrectPasswordError));
+        }
+      });
+    } else {
+      return cb(null, false, new errors.IncorrectPasswordError(options.errorMessages.IncorrectPasswordError));
+    }
+  }
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.passport-local-mongoose.errors.IncorrectPasswordError.super_" id="apidoc.element.passport-local-mongoose.errors.IncorrectPasswordError.super_">
+        function <span class="apidocSignatureSpan">passport-local-mongoose.errors.IncorrectPasswordError.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">super_ = function () {
+  if (!(this instanceof ctor)) {
+    var constructorArgs = Array.prototype.slice.call(arguments);
+    constructorArgs.unshift(ctor);
+
+    return new (ctor.bind.apply(ctor, constructorArgs))();
+  }
+
+  options.inherits.call(this);
+
+  if (options.captureStackTrace) {
+    Error.captureStackTrace &amp;&amp; Error.captureStackTrace(this, arguments.callee);
+  }
+
+  copy(parameters, this);
+
+  var msg = arguments[0];
+  if (msg) {
+    var args = Array.prototype.slice.call(arguments);
+
+    if (args.length &gt; 1 &amp;&amp; typeof args[args.length - 1] == 'object') {
+      var instanceParams = args.pop();
+
+      copy(instanceParams, this);
+    }
+
+    this.message = util.format.apply(util, args);
+  }
+
+  this.name = name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.passport-local-mongoose.errors.IncorrectUsernameError" id="apidoc.module.passport-local-mongoose.errors.IncorrectUsernameError">module passport-local-mongoose.errors.IncorrectUsernameError</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.passport-local-mongoose.errors.IncorrectUsernameError.IncorrectUsernameError" id="apidoc.element.passport-local-mongoose.errors.IncorrectUsernameError.IncorrectUsernameError">
+        function <span class="apidocSignatureSpan">passport-local-mongoose.errors.</span>IncorrectUsernameError
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">IncorrectUsernameError = function () {
+  if (!(this instanceof ctor)) {
+    var constructorArgs = Array.prototype.slice.call(arguments);
+    constructorArgs.unshift(ctor);
+
+    return new (ctor.bind.apply(ctor, constructorArgs))();
+  }
+
+  options.inherits.call(this);
+
+  if (options.captureStackTrace) {
+    Error.captureStackTrace &amp;&amp; Error.captureStackTrace(this, arguments.callee);
+  }
+
+  copy(parameters, this);
+
+  var msg = arguments[0];
+  if (msg) {
+    var args = Array.prototype.slice.call(arguments);
+
+    if (args.length &gt; 1 &amp;&amp; typeof args[args.length - 1] == 'object') {
+      var instanceParams = args.pop();
+
+      copy(instanceParams, this);
+    }
+
+    this.message = util.format.apply(util, args);
+  }
+
+  this.name = name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  if (!self.get(options.saltField)) {
+    self.constructor.findByUsername(self.get(options.usernameField), true, function(err, user) {
+      if (err) { return cb(err); }
+
+      if (user) {
+        return authenticate(user, password, cb);
+      } else {
+        return cb(null, false, new errors.<span class="apidocCodeKeywordSpan">IncorrectUsernameError</span>(options.errorMessages
+.IncorrectUsernameError));
+      }
+    });
+  } else {
+    return authenticate(self, password, cb);
+  }
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.passport-local-mongoose.errors.IncorrectUsernameError.super_" id="apidoc.element.passport-local-mongoose.errors.IncorrectUsernameError.super_">
+        function <span class="apidocSignatureSpan">passport-local-mongoose.errors.IncorrectUsernameError.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">super_ = function () {
+  if (!(this instanceof ctor)) {
+    var constructorArgs = Array.prototype.slice.call(arguments);
+    constructorArgs.unshift(ctor);
+
+    return new (ctor.bind.apply(ctor, constructorArgs))();
+  }
+
+  options.inherits.call(this);
+
+  if (options.captureStackTrace) {
+    Error.captureStackTrace &amp;&amp; Error.captureStackTrace(this, arguments.callee);
+  }
+
+  copy(parameters, this);
+
+  var msg = arguments[0];
+  if (msg) {
+    var args = Array.prototype.slice.call(arguments);
+
+    if (args.length &gt; 1 &amp;&amp; typeof args[args.length - 1] == 'object') {
+      var instanceParams = args.pop();
+
+      copy(instanceParams, this);
+    }
+
+    this.message = util.format.apply(util, args);
+  }
+
+  this.name = name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.passport-local-mongoose.errors.MissingPasswordError" id="apidoc.module.passport-local-mongoose.errors.MissingPasswordError">module passport-local-mongoose.errors.MissingPasswordError</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.passport-local-mongoose.errors.MissingPasswordError.MissingPasswordError" id="apidoc.element.passport-local-mongoose.errors.MissingPasswordError.MissingPasswordError">
+        function <span class="apidocSignatureSpan">passport-local-mongoose.errors.</span>MissingPasswordError
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">MissingPasswordError = function () {
+  if (!(this instanceof ctor)) {
+    var constructorArgs = Array.prototype.slice.call(arguments);
+    constructorArgs.unshift(ctor);
+
+    return new (ctor.bind.apply(ctor, constructorArgs))();
+  }
+
+  options.inherits.call(this);
+
+  if (options.captureStackTrace) {
+    Error.captureStackTrace &amp;&amp; Error.captureStackTrace(this, arguments.callee);
+  }
+
+  copy(parameters, this);
+
+  var msg = arguments[0];
+  if (msg) {
+    var args = Array.prototype.slice.call(arguments);
+
+    if (args.length &gt; 1 &amp;&amp; typeof args[args.length - 1] == 'object') {
+      var instanceParams = args.pop();
+
+      copy(instanceParams, this);
+    }
+
+    this.message = util.format.apply(util, args);
+  }
+
+  this.name = name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+next();
+  });
+
+  schema.methods.setPassword = function(password, cb) {
+if (!password) {
+  return cb(new errors.<span class="apidocCodeKeywordSpan">MissingPasswordError</span>(options.errorMessages.MissingPasswordError
+));
+}
+
+var self = this;
+
+options.passwordValidator(password, function(err) {
+  if (err) {
+    return cb(err);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.passport-local-mongoose.errors.MissingPasswordError.super_" id="apidoc.element.passport-local-mongoose.errors.MissingPasswordError.super_">
+        function <span class="apidocSignatureSpan">passport-local-mongoose.errors.MissingPasswordError.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">super_ = function () {
+  if (!(this instanceof ctor)) {
+    var constructorArgs = Array.prototype.slice.call(arguments);
+    constructorArgs.unshift(ctor);
+
+    return new (ctor.bind.apply(ctor, constructorArgs))();
+  }
+
+  options.inherits.call(this);
+
+  if (options.captureStackTrace) {
+    Error.captureStackTrace &amp;&amp; Error.captureStackTrace(this, arguments.callee);
+  }
+
+  copy(parameters, this);
+
+  var msg = arguments[0];
+  if (msg) {
+    var args = Array.prototype.slice.call(arguments);
+
+    if (args.length &gt; 1 &amp;&amp; typeof args[args.length - 1] == 'object') {
+      var instanceParams = args.pop();
+
+      copy(instanceParams, this);
+    }
+
+    this.message = util.format.apply(util, args);
+  }
+
+  this.name = name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.passport-local-mongoose.errors.MissingUsernameError" id="apidoc.module.passport-local-mongoose.errors.MissingUsernameError">module passport-local-mongoose.errors.MissingUsernameError</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.passport-local-mongoose.errors.MissingUsernameError.MissingUsernameError" id="apidoc.element.passport-local-mongoose.errors.MissingUsernameError.MissingUsernameError">
+        function <span class="apidocSignatureSpan">passport-local-mongoose.errors.</span>MissingUsernameError
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">MissingUsernameError = function () {
+  if (!(this instanceof ctor)) {
+    var constructorArgs = Array.prototype.slice.call(arguments);
+    constructorArgs.unshift(ctor);
+
+    return new (ctor.bind.apply(ctor, constructorArgs))();
+  }
+
+  options.inherits.call(this);
+
+  if (options.captureStackTrace) {
+    Error.captureStackTrace &amp;&amp; Error.captureStackTrace(this, arguments.callee);
+  }
+
+  copy(parameters, this);
+
+  var msg = arguments[0];
+  if (msg) {
+    var args = Array.prototype.slice.call(arguments);
+
+    if (args.length &gt; 1 &amp;&amp; typeof args[args.length - 1] == 'object') {
+      var instanceParams = args.pop();
+
+      copy(instanceParams, this);
+    }
+
+    this.message = util.format.apply(util, args);
+  }
+
+  this.name = name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  schema.statics.register = function(user, password, cb) {
+    // Create an instance of this in case user isn't already an instance
+    if (!(user instanceof this)) {
+user = new this(user);
+    }
+
+    if (!user.get(options.usernameField)) {
+return cb(new errors.<span class="apidocCodeKeywordSpan">MissingUsernameError</span>(options.errorMessages.MissingUsernameError));
+    }
+
+    var self = this;
+    self.findByUsername(user.get(options.usernameField), function(err, existingUser) {
+if (err) { return cb(err); }
+
+if (existingUser) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.passport-local-mongoose.errors.MissingUsernameError.super_" id="apidoc.element.passport-local-mongoose.errors.MissingUsernameError.super_">
+        function <span class="apidocSignatureSpan">passport-local-mongoose.errors.MissingUsernameError.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">super_ = function () {
+  if (!(this instanceof ctor)) {
+    var constructorArgs = Array.prototype.slice.call(arguments);
+    constructorArgs.unshift(ctor);
+
+    return new (ctor.bind.apply(ctor, constructorArgs))();
+  }
+
+  options.inherits.call(this);
+
+  if (options.captureStackTrace) {
+    Error.captureStackTrace &amp;&amp; Error.captureStackTrace(this, arguments.callee);
+  }
+
+  copy(parameters, this);
+
+  var msg = arguments[0];
+  if (msg) {
+    var args = Array.prototype.slice.call(arguments);
+
+    if (args.length &gt; 1 &amp;&amp; typeof args[args.length - 1] == 'object') {
+      var instanceParams = args.pop();
+
+      copy(instanceParams, this);
+    }
+
+    this.message = util.format.apply(util, args);
+  }
+
+  this.name = name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.passport-local-mongoose.errors.NoSaltValueStoredError" id="apidoc.module.passport-local-mongoose.errors.NoSaltValueStoredError">module passport-local-mongoose.errors.NoSaltValueStoredError</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.passport-local-mongoose.errors.NoSaltValueStoredError.NoSaltValueStoredError" id="apidoc.element.passport-local-mongoose.errors.NoSaltValueStoredError.NoSaltValueStoredError">
+        function <span class="apidocSignatureSpan">passport-local-mongoose.errors.</span>NoSaltValueStoredError
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">NoSaltValueStoredError = function () {
+  if (!(this instanceof ctor)) {
+    var constructorArgs = Array.prototype.slice.call(arguments);
+    constructorArgs.unshift(ctor);
+
+    return new (ctor.bind.apply(ctor, constructorArgs))();
+  }
+
+  options.inherits.call(this);
+
+  if (options.captureStackTrace) {
+    Error.captureStackTrace &amp;&amp; Error.captureStackTrace(this, arguments.callee);
+  }
+
+  copy(parameters, this);
+
+  var msg = arguments[0];
+  if (msg) {
+    var args = Array.prototype.slice.call(arguments);
+
+    if (args.length &gt; 1 &amp;&amp; typeof args[args.length - 1] == 'object') {
+      var instanceParams = args.pop();
+
+      copy(instanceParams, this);
+    }
+
+    this.message = util.format.apply(util, args);
+  }
+
+  this.name = name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  if (user.get(options.attemptsField) &gt;= options.maxAttempts) {
+    return cb(null, false, new errors.TooManyAttemptsError(options.errorMessages.TooManyAttemptsError));
+  }
+}
+
+if (!user.get(options.saltField)) {
+  return cb(null, false, new errors.<span class="apidocCodeKeywordSpan">NoSaltValueStoredError</span>(options.errorMessages.NoSaltValueStoredError
+));
+}
+
+pbkdf2(password, user.get(options.saltField), function(err, hashRaw) {
+  if (err) {
+    return cb(err);
+  }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.passport-local-mongoose.errors.NoSaltValueStoredError.super_" id="apidoc.element.passport-local-mongoose.errors.NoSaltValueStoredError.super_">
+        function <span class="apidocSignatureSpan">passport-local-mongoose.errors.NoSaltValueStoredError.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">super_ = function () {
+  if (!(this instanceof ctor)) {
+    var constructorArgs = Array.prototype.slice.call(arguments);
+    constructorArgs.unshift(ctor);
+
+    return new (ctor.bind.apply(ctor, constructorArgs))();
+  }
+
+  options.inherits.call(this);
+
+  if (options.captureStackTrace) {
+    Error.captureStackTrace &amp;&amp; Error.captureStackTrace(this, arguments.callee);
+  }
+
+  copy(parameters, this);
+
+  var msg = arguments[0];
+  if (msg) {
+    var args = Array.prototype.slice.call(arguments);
+
+    if (args.length &gt; 1 &amp;&amp; typeof args[args.length - 1] == 'object') {
+      var instanceParams = args.pop();
+
+      copy(instanceParams, this);
+    }
+
+    this.message = util.format.apply(util, args);
+  }
+
+  this.name = name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.passport-local-mongoose.errors.TooManyAttemptsError" id="apidoc.module.passport-local-mongoose.errors.TooManyAttemptsError">module passport-local-mongoose.errors.TooManyAttemptsError</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.passport-local-mongoose.errors.TooManyAttemptsError.TooManyAttemptsError" id="apidoc.element.passport-local-mongoose.errors.TooManyAttemptsError.TooManyAttemptsError">
+        function <span class="apidocSignatureSpan">passport-local-mongoose.errors.</span>TooManyAttemptsError
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">TooManyAttemptsError = function () {
+  if (!(this instanceof ctor)) {
+    var constructorArgs = Array.prototype.slice.call(arguments);
+    constructorArgs.unshift(ctor);
+
+    return new (ctor.bind.apply(ctor, constructorArgs))();
+  }
+
+  options.inherits.call(this);
+
+  if (options.captureStackTrace) {
+    Error.captureStackTrace &amp;&amp; Error.captureStackTrace(this, arguments.callee);
+  }
+
+  copy(parameters, this);
+
+  var msg = arguments[0];
+  if (msg) {
+    var args = Array.prototype.slice.call(arguments);
+
+    if (args.length &gt; 1 &amp;&amp; typeof args[args.length - 1] == 'object') {
+      var instanceParams = args.pop();
+
+      copy(instanceParams, this);
+    }
+
+    this.message = util.format.apply(util, args);
+  }
+
+  this.name = name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  if (Date.now() - user.get(options.lastLoginField) &lt; calculatedInterval) {
+    user.set(options.lastLoginField, Date.now());
+    user.save();
+    return cb(null, false, new errors.AttemptTooSoonError(options.errorMessages.AttemptTooSoonError));
+  }
+
+  if (user.get(options.attemptsField) &gt;= options.maxAttempts) {
+    return cb(null, false, new errors.<span class="apidocCodeKeywordSpan">TooManyAttemptsError</span>(options.errorMessages.TooManyAttemptsError
+));
+  }
+}
+
+if (!user.get(options.saltField)) {
+  return cb(null, false, new errors.NoSaltValueStoredError(options.errorMessages.NoSaltValueStoredError));
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.passport-local-mongoose.errors.TooManyAttemptsError.super_" id="apidoc.element.passport-local-mongoose.errors.TooManyAttemptsError.super_">
+        function <span class="apidocSignatureSpan">passport-local-mongoose.errors.TooManyAttemptsError.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">super_ = function () {
+  if (!(this instanceof ctor)) {
+    var constructorArgs = Array.prototype.slice.call(arguments);
+    constructorArgs.unshift(ctor);
+
+    return new (ctor.bind.apply(ctor, constructorArgs))();
+  }
+
+  options.inherits.call(this);
+
+  if (options.captureStackTrace) {
+    Error.captureStackTrace &amp;&amp; Error.captureStackTrace(this, arguments.callee);
+  }
+
+  copy(parameters, this);
+
+  var msg = arguments[0];
+  if (msg) {
+    var args = Array.prototype.slice.call(arguments);
+
+    if (args.length &gt; 1 &amp;&amp; typeof args[args.length - 1] == 'object') {
+      var instanceParams = args.pop();
+
+      copy(instanceParams, this);
+    }
+
+    this.message = util.format.apply(util, args);
+  }
+
+  this.name = name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.passport-local-mongoose.errors.UserExistsError" id="apidoc.module.passport-local-mongoose.errors.UserExistsError">module passport-local-mongoose.errors.UserExistsError</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.passport-local-mongoose.errors.UserExistsError.UserExistsError" id="apidoc.element.passport-local-mongoose.errors.UserExistsError.UserExistsError">
+        function <span class="apidocSignatureSpan">passport-local-mongoose.errors.</span>UserExistsError
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">UserExistsError = function () {
+  if (!(this instanceof ctor)) {
+    var constructorArgs = Array.prototype.slice.call(arguments);
+    constructorArgs.unshift(ctor);
+
+    return new (ctor.bind.apply(ctor, constructorArgs))();
+  }
+
+  options.inherits.call(this);
+
+  if (options.captureStackTrace) {
+    Error.captureStackTrace &amp;&amp; Error.captureStackTrace(this, arguments.callee);
+  }
+
+  copy(parameters, this);
+
+  var msg = arguments[0];
+  if (msg) {
+    var args = Array.prototype.slice.call(arguments);
+
+    if (args.length &gt; 1 &amp;&amp; typeof args[args.length - 1] == 'object') {
+      var instanceParams = args.pop();
+
+      copy(instanceParams, this);
+    }
+
+    this.message = util.format.apply(util, args);
+  }
+
+  this.name = name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    }
+
+    var self = this;
+    self.findByUsername(user.get(options.usernameField), function(err, existingUser) {
+if (err) { return cb(err); }
+
+if (existingUser) {
+  return cb(new errors.<span class="apidocCodeKeywordSpan">UserExistsError</span>(options.errorMessages.UserExistsError));
+}
+
+user.setPassword(password, function(setPasswordErr, user) {
+  if (setPasswordErr) {
+    return cb(setPasswordErr);
+  }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.passport-local-mongoose.errors.UserExistsError.super_" id="apidoc.element.passport-local-mongoose.errors.UserExistsError.super_">
+        function <span class="apidocSignatureSpan">passport-local-mongoose.errors.UserExistsError.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">super_ = function () {
+  if (!(this instanceof ctor)) {
+    var constructorArgs = Array.prototype.slice.call(arguments);
+    constructorArgs.unshift(ctor);
+
+    return new (ctor.bind.apply(ctor, constructorArgs))();
+  }
+
+  options.inherits.call(this);
+
+  if (options.captureStackTrace) {
+    Error.captureStackTrace &amp;&amp; Error.captureStackTrace(this, arguments.callee);
+  }
+
+  copy(parameters, this);
+
+  var msg = arguments[0];
+  if (msg) {
+    var args = Array.prototype.slice.call(arguments);
+
+    if (args.length &gt; 1 &amp;&amp; typeof args[args.length - 1] == 'object') {
+      var instanceParams = args.pop();
+
+      copy(instanceParams, this);
+    }
+
+    this.message = util.format.apply(util, args);
+  }
+
+  this.name = name;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
