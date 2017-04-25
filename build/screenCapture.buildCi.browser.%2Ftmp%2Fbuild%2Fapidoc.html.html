@@ -56,6 +56,15 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.element.passport-local-mongoose.passport-local-mongoose">
+            function <span class="apidocSignatureSpan"></span>passport-local-mongoose
+            <span class="apidocSignatureSpan">(schema, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <a class="apidocElementLiA" href="#apidoc.element.passport-local-mongoose.errors.AttemptTooSoonError">
             function <span class="apidocSignatureSpan">passport-local-mongoose.</span>errors.AttemptTooSoonError
             <span class="apidocSignatureSpan">()</span>
@@ -430,6 +439,114 @@
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.passport-local-mongoose" id="apidoc.module.passport-local-mongoose">module passport-local-mongoose</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.passport-local-mongoose.passport-local-mongoose" id="apidoc.element.passport-local-mongoose.passport-local-mongoose">
+        function <span class="apidocSignatureSpan"></span>passport-local-mongoose
+        <span class="apidocSignatureSpan">(schema, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">passport-local-mongoose = function (schema, options) {
+  options = options || {};
+  options.saltlen = options.saltlen || 32;
+  options.iterations = options.iterations || 25000;
+  options.keylen = options.keylen || 512;
+  options.encoding = options.encoding || 'hex';
+  options.digestAlgorithm = options.digestAlgorithm || 'sha256'; // To get a list of supported hashes use crypto.getHashes()
+  options.passwordValidator = options.passwordValidator || function(password, cb) { cb(null); };
+
+  // Populate field names with defaults if not set
+  options.usernameField = options.usernameField || 'username';
+  options.usernameUnique = options.usernameUnique === undefined ? true : options.usernameUnique;
+
+  // Populate username query fields with defaults if not set,
+  // otherwise add username field to query fields.
+  if (options.usernameQueryFields) {
+    options.usernameQueryFields.push(options.usernameField);
+  } else {
+    options.usernameQueryFields = [options.usernameField];
+  }
+
+  // option to convert username to lowercase when finding
+  options.usernameLowerCase = options.usernameLowerCase || false;
+
+  options.hashField = options.hashField || 'hash';
+  options.saltField = options.saltField || 'salt';
+
+  if (options.limitAttempts) {
+    options.lastLoginField = options.lastLoginField || 'last';
+    options.attemptsField = options.attemptsField || 'attempts';
+    options.interval = options.interval || 100; // 100 ms
+    options.maxInterval = options.maxInterval || 300000; // 5 min
+    options.maxAttempts = options.maxAttempts || Infinity;
+  }
+
+  options.errorMessages = options.errorMessages || {};
+  options.errorMessages.MissingPasswordError = options.errorMessages.MissingPasswordError || 'No password was given';
+  options.errorMessages.AttemptTooSoonError = options.errorMessages.AttemptTooSoonError || 'Account is currently locked. Try again
+ later';
+  options.errorMessages.TooManyAttemptsError = options.errorMessages.TooManyAttemptsError || 'Account locked due to too many failed
+ login attempts';
+  options.errorMessages.NoSaltValueStoredError = options.errorMessages.NoSaltValueStoredError || 'Authentication not possible. No
+ salt value stored';
+  options.errorMessages.IncorrectPasswordError = options.errorMessages.IncorrectPasswordError || 'Password or username are incorrect
+';
+  options.errorMessages.IncorrectUsernameError = options.errorMessages.IncorrectUsernameError || 'Password or username are incorrect
+';
+  options.errorMessages.MissingUsernameError = options.errorMessages.MissingUsernameError|| 'No username was given';
+  options.errorMessages.UserExistsError = options.errorMessages.UserExistsError|| 'A user with the given username is already registered
+';
+
+  var pbkdf2 = function(password, salt, callback) {
+    if (pbkdf2DigestSupport) {
+      crypto.pbkdf2(password, salt, options.iterations, options.keylen, options.digestAlgorithm, callback);
+    } else {
+      crypto.pbkdf2(password, salt, options.iterations, options.keylen, callback);
+    }
+  };
+
+  var schemaFields = {};
+
+  if (!schema.path(options.usernameField)) {
+    schemaFields[options.usernameField] = {type: String, unique: options.usernameUnique};
+  }
+  schemaFields[options.hashField] = {type: String, select: false};
+  schemaFields[options.saltField] = {type: String, select: false};
+
+  if (options.limitAttempts) {
+    schemaFields[options.attemptsField] = {type: Number, default: 0};
+    schemaFields[options.lastLoginField] = {type: Date, default: Date.now};
+  }
+
+  schema.add(schemaFields);
+
+  schema.pre('save', function(next) {
+    // if specified, convert the username to lowercase
+    if (options.usernameLowerCase &amp;&amp; this[options.usernameField]) {
+      this[options.usernameField] = this[options.usernameField].toLowerCase();
+    }
+
+    next();
+  });
+
+  schema.methods.setPassword = function(password, cb) {
+    if (!password) {
+      return cb(new errors.MissingPasswordError(options.errorMessages.MissingPasswordError));
+    }
+
+    var self = this;
+
+    options.passwordValidator(password, function(err) {
+      if (err) {
+        return cb(err);
+      }
+
+      crypto.randomBytes(options.s ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 
     <h2>
@@ -864,23 +981,7 @@
 
   this.name = name;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-if (options.limitAttempts) {
-  var attemptsInterval = Math.pow(options.interval, Math.log(user.get(options.attemptsField) + 1));
-  var calculatedInterval = (attemptsInterval &lt; options.maxInterval) ? attemptsInterval : options.maxInterval;
-
-  if (Date.now() - user.get(options.lastLoginField) &lt; calculatedInterval) {
-    user.set(options.lastLoginField, Date.now());
-    user.save();
-    return cb(null, false, new errors.<span class="apidocCodeKeywordSpan">AttemptTooSoonError</span>(options.errorMessages.AttemptTooSoonError
-));
-  }
-
-  if (user.get(options.attemptsField) &gt;= options.maxAttempts) {
-    return cb(null, false, new errors.TooManyAttemptsError(options.errorMessages.TooManyAttemptsError));
-  }
-}
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -966,24 +1067,7 @@ if (options.limitAttempts) {
 
   this.name = name;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-      user.set(options.lastLoginField, Date.now());
-      user.set(options.attemptsField, user.get(options.attemptsField) + 1);
-      user.save(function(saveErr) {
-        if (saveErr) { return cb(saveErr); }
-        if (user.get(options.attemptsField) &gt;= options.maxAttempts) {
-          return cb(null, false, new errors.TooManyAttemptsError(options.errorMessages.TooManyAttemptsError));
-        } else {
-          return cb(null, false, new errors.<span class="apidocCodeKeywordSpan">IncorrectPasswordError</span>(options.errorMessages
-.IncorrectPasswordError));
-        }
-      });
-    } else {
-      return cb(null, false, new errors.IncorrectPasswordError(options.errorMessages.IncorrectPasswordError));
-    }
-  }
-});
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -1026,23 +1110,7 @@ if (options.limitAttempts) {
 
   this.name = name;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  if (!self.get(options.saltField)) {
-    self.constructor.findByUsername(self.get(options.usernameField), true, function(err, user) {
-      if (err) { return cb(err); }
-
-      if (user) {
-        return authenticate(user, password, cb);
-      } else {
-        return cb(null, false, new errors.<span class="apidocCodeKeywordSpan">IncorrectUsernameError</span>(options.errorMessages
-.IncorrectUsernameError));
-      }
-    });
-  } else {
-    return authenticate(self, password, cb);
-  }
-};
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -1085,24 +1153,7 @@ if (options.limitAttempts) {
 
   this.name = name;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-}
-
-next();
-  });
-
-  schema.methods.setPassword = function(password, cb) {
-if (!password) {
-  return cb(new errors.<span class="apidocCodeKeywordSpan">MissingPasswordError</span>(options.errorMessages.MissingPasswordError
-));
-}
-
-var self = this;
-
-options.passwordValidator(password, function(err) {
-  if (err) {
-    return cb(err);
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -1145,23 +1196,7 @@ options.passwordValidator(password, function(err) {
 
   this.name = name;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  schema.statics.register = function(user, password, cb) {
-    // Create an instance of this in case user isn't already an instance
-    if (!(user instanceof this)) {
-user = new this(user);
-    }
-
-    if (!user.get(options.usernameField)) {
-return cb(new errors.<span class="apidocCodeKeywordSpan">MissingUsernameError</span>(options.errorMessages.MissingUsernameError));
-    }
-
-    var self = this;
-    self.findByUsername(user.get(options.usernameField), function(err, existingUser) {
-if (err) { return cb(err); }
-
-if (existingUser) {
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -1204,23 +1239,7 @@ if (existingUser) {
 
   this.name = name;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-
-  if (user.get(options.attemptsField) &gt;= options.maxAttempts) {
-    return cb(null, false, new errors.TooManyAttemptsError(options.errorMessages.TooManyAttemptsError));
-  }
-}
-
-if (!user.get(options.saltField)) {
-  return cb(null, false, new errors.<span class="apidocCodeKeywordSpan">NoSaltValueStoredError</span>(options.errorMessages.NoSaltValueStoredError
-));
-}
-
-pbkdf2(password, user.get(options.saltField), function(err, hashRaw) {
-  if (err) {
-    return cb(err);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -1263,23 +1282,7 @@ pbkdf2(password, user.get(options.saltField), function(err, hashRaw) {
 
   this.name = name;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  if (Date.now() - user.get(options.lastLoginField) &lt; calculatedInterval) {
-    user.set(options.lastLoginField, Date.now());
-    user.save();
-    return cb(null, false, new errors.AttemptTooSoonError(options.errorMessages.AttemptTooSoonError));
-  }
-
-  if (user.get(options.attemptsField) &gt;= options.maxAttempts) {
-    return cb(null, false, new errors.<span class="apidocCodeKeywordSpan">TooManyAttemptsError</span>(options.errorMessages.TooManyAttemptsError
-));
-  }
-}
-
-if (!user.get(options.saltField)) {
-  return cb(null, false, new errors.NoSaltValueStoredError(options.errorMessages.NoSaltValueStoredError));
-}
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -1322,22 +1325,7 @@ if (!user.get(options.saltField)) {
 
   this.name = name;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-    }
-
-    var self = this;
-    self.findByUsername(user.get(options.usernameField), function(err, existingUser) {
-if (err) { return cb(err); }
-
-if (existingUser) {
-  return cb(new errors.<span class="apidocCodeKeywordSpan">UserExistsError</span>(options.errorMessages.UserExistsError));
-}
-
-user.setPassword(password, function(setPasswordErr, user) {
-  if (setPasswordErr) {
-    return cb(setPasswordErr);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -1385,23 +1373,7 @@ user.setPassword(password, function(setPasswordErr, user) {
 
   this.name = name;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-if (options.limitAttempts) {
-  var attemptsInterval = Math.pow(options.interval, Math.log(user.get(options.attemptsField) + 1));
-  var calculatedInterval = (attemptsInterval &lt; options.maxInterval) ? attemptsInterval : options.maxInterval;
-
-  if (Date.now() - user.get(options.lastLoginField) &lt; calculatedInterval) {
-    user.set(options.lastLoginField, Date.now());
-    user.save();
-    return cb(null, false, new errors.<span class="apidocCodeKeywordSpan">AttemptTooSoonError</span>(options.errorMessages.AttemptTooSoonError
-));
-  }
-
-  if (user.get(options.attemptsField) &gt;= options.maxAttempts) {
-    return cb(null, false, new errors.TooManyAttemptsError(options.errorMessages.TooManyAttemptsError));
-  }
-}
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -1553,24 +1525,7 @@ if (options.limitAttempts) {
 
   this.name = name;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-      user.set(options.lastLoginField, Date.now());
-      user.set(options.attemptsField, user.get(options.attemptsField) + 1);
-      user.save(function(saveErr) {
-        if (saveErr) { return cb(saveErr); }
-        if (user.get(options.attemptsField) &gt;= options.maxAttempts) {
-          return cb(null, false, new errors.TooManyAttemptsError(options.errorMessages.TooManyAttemptsError));
-        } else {
-          return cb(null, false, new errors.<span class="apidocCodeKeywordSpan">IncorrectPasswordError</span>(options.errorMessages
-.IncorrectPasswordError));
-        }
-      });
-    } else {
-      return cb(null, false, new errors.IncorrectPasswordError(options.errorMessages.IncorrectPasswordError));
-    }
-  }
-});
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -1661,23 +1616,7 @@ if (options.limitAttempts) {
 
   this.name = name;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  if (!self.get(options.saltField)) {
-    self.constructor.findByUsername(self.get(options.usernameField), true, function(err, user) {
-      if (err) { return cb(err); }
-
-      if (user) {
-        return authenticate(user, password, cb);
-      } else {
-        return cb(null, false, new errors.<span class="apidocCodeKeywordSpan">IncorrectUsernameError</span>(options.errorMessages
-.IncorrectUsernameError));
-      }
-    });
-  } else {
-    return authenticate(self, password, cb);
-  }
-};
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -1768,24 +1707,7 @@ if (options.limitAttempts) {
 
   this.name = name;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-}
-
-next();
-  });
-
-  schema.methods.setPassword = function(password, cb) {
-if (!password) {
-  return cb(new errors.<span class="apidocCodeKeywordSpan">MissingPasswordError</span>(options.errorMessages.MissingPasswordError
-));
-}
-
-var self = this;
-
-options.passwordValidator(password, function(err) {
-  if (err) {
-    return cb(err);
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -1876,23 +1798,7 @@ options.passwordValidator(password, function(err) {
 
   this.name = name;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  schema.statics.register = function(user, password, cb) {
-    // Create an instance of this in case user isn't already an instance
-    if (!(user instanceof this)) {
-user = new this(user);
-    }
-
-    if (!user.get(options.usernameField)) {
-return cb(new errors.<span class="apidocCodeKeywordSpan">MissingUsernameError</span>(options.errorMessages.MissingUsernameError));
-    }
-
-    var self = this;
-    self.findByUsername(user.get(options.usernameField), function(err, existingUser) {
-if (err) { return cb(err); }
-
-if (existingUser) {
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -1983,23 +1889,7 @@ if (existingUser) {
 
   this.name = name;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-
-  if (user.get(options.attemptsField) &gt;= options.maxAttempts) {
-    return cb(null, false, new errors.TooManyAttemptsError(options.errorMessages.TooManyAttemptsError));
-  }
-}
-
-if (!user.get(options.saltField)) {
-  return cb(null, false, new errors.<span class="apidocCodeKeywordSpan">NoSaltValueStoredError</span>(options.errorMessages.NoSaltValueStoredError
-));
-}
-
-pbkdf2(password, user.get(options.saltField), function(err, hashRaw) {
-  if (err) {
-    return cb(err);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -2090,23 +1980,7 @@ pbkdf2(password, user.get(options.saltField), function(err, hashRaw) {
 
   this.name = name;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  if (Date.now() - user.get(options.lastLoginField) &lt; calculatedInterval) {
-    user.set(options.lastLoginField, Date.now());
-    user.save();
-    return cb(null, false, new errors.AttemptTooSoonError(options.errorMessages.AttemptTooSoonError));
-  }
-
-  if (user.get(options.attemptsField) &gt;= options.maxAttempts) {
-    return cb(null, false, new errors.<span class="apidocCodeKeywordSpan">TooManyAttemptsError</span>(options.errorMessages.TooManyAttemptsError
-));
-  }
-}
-
-if (!user.get(options.saltField)) {
-  return cb(null, false, new errors.NoSaltValueStoredError(options.errorMessages.NoSaltValueStoredError));
-}
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -2197,22 +2071,7 @@ if (!user.get(options.saltField)) {
 
   this.name = name;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-    }
-
-    var self = this;
-    self.findByUsername(user.get(options.usernameField), function(err, existingUser) {
-if (err) { return cb(err); }
-
-if (existingUser) {
-  return cb(new errors.<span class="apidocCodeKeywordSpan">UserExistsError</span>(options.errorMessages.UserExistsError));
-}
-
-user.setPassword(password, function(setPasswordErr, user) {
-  if (setPasswordErr) {
-    return cb(setPasswordErr);
-  }
-...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
